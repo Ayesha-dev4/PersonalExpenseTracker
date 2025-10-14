@@ -1,0 +1,22 @@
+const mockExpenseList = [
+    {
+        title: "Groceries",
+        date: new Date("2025-10-10"),
+        amount: 45.50,
+        category: "Food"
+    },
+      {
+        title: "Restaurant",
+        date: new Date("2025-04-11"),
+        amount: 25.40,
+        category: "Food"
+    },
+     {
+        title: "Gas",
+        date: new Date("2025-10-11"),
+        amount: 39.99,
+        category: "Transport"
+    }
+]
+
+export default mockExpenseList;
