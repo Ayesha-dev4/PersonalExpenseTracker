@@ -4,11 +4,24 @@ import mockExpenseList from "../mockData/mockExpenseList"
 import calculateTotal from "../utils/calculateTotal"
 
 export default function ExpenseList() {
-    const total = calculateTotal(mockExpenseList)
+    const [expenses, setExpenses] = useState(mockExpenseList)
+
+    const total = calculateTotal(expenses)
+    useEffect(() => {
+    // this runs once after the component renders
+    const storedExpenses = localStorage.getItem("expenses")
+    if (storedExpenses) {
+        setExpenses(JSON.parse(storedExpenses))
+    }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("expenses", JSON.stringify(expenses))
+    }, [expenses]) // Save the expenses updates
 
     return (
           <>
-        {mockExpenseList.map( (expense, index) => (
+        {expenses.map( (expense, index) => (
             <ExpenseCard key={index} title={expense.title} amount={expense.amount} date={expense.date} category={expense.category} />
         ))}
 
