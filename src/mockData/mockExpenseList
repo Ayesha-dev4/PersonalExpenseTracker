@@ -1,22 +1,9 @@
+import expenseObject from "./expenseObject";
+
 const mockExpenseList = [
-    {
-        title: "Groceries",
-        date: new Date("2025-10-10"),
-        amount: 45.50,
-        category: "Food"
-    },
-      {
-        title: "Restaurant",
-        date: new Date("2025-04-11"),
-        amount: 25.40,
-        category: "Food"
-    },
-     {
-        title: "Gas",
-        date: new Date("2025-10-11"),
-        amount: 39.99,
-        category: "Transport"
-    }
+    expenseObject("Groceries", new Date("2025-10-10"), 45.50,"Food"),
+    expenseObject("Restaurant", new Date("2025-04-10"), 25.40, "Food"),
+    expenseObject("Gas", new Date("2025-10-11"), 39.99, "Transport")
 ]
 
 export default mockExpenseList;
