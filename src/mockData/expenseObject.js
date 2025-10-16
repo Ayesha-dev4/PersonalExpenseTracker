@@ -1,4 +1,4 @@
-export default function expenseObject(title, date, amount, category) {
+export default function newExpense(title, date, amount, category) {
     return {
         title: title,
         date: date,

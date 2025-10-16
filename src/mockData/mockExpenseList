@@ -1,9 +1,9 @@
-import expenseObject from "./expenseObject";
+import newExpense from "./expenseObject";
 
 const mockExpenseList = [
-    expenseObject("Groceries", new Date("2025-10-10"), 45.50,"Food"),
-    expenseObject("Restaurant", new Date("2025-04-10"), 25.40, "Food"),
-    expenseObject("Gas", new Date("2025-10-11"), 39.99, "Transport")
+    newExpense("Groceries", new Date("2025-10-10"), 45.50,"Food"),
+    newExpense("Restaurant", new Date("2025-04-10"), 25.40, "Food"),
+    newExpense("Gas", new Date("2025-10-11"), 39.99, "Transport")
 ]
 
 export default mockExpenseList;
