@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 
-export default function AddExpense({onCancel}) {
+export default function AddExpense({onCancel, onSubmit}) {
     return (
         <>
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={onCancel}>
@@ -12,10 +12,9 @@ export default function AddExpense({onCancel}) {
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.25, ease: "easeOut" }}
         className="
-        bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md sm:max-w-lg md:max-w-xl 
-        max-h-[90vh] overflow-y-auto
-        "
-      >
+        bg-white p-6 rounded-lg shadow-lg w-[90%] max-w-md sm:max-w-lg 
+        md:max-w-xl max-h-[90vh] overflow-y-auto
+        ">
                 <div className="relative">
                     <button 
                         onClick={onCancel} 
@@ -27,25 +26,24 @@ export default function AddExpense({onCancel}) {
             <label htmlFor="title" className="text-purple-600 text-left" >Title</label>
             <input type="text" id="title" placeholder="Enter name for expense" className="
             text-purple-600 border border-purple-300 rounded p-2 focus:outline-none focus:ring-2 
-            focus:ring-purple-400
+            focus:ring-purple-400 w-full
             "/> 
             <label htmlFor="date" className="text-purple-600 text-left" >Date</label>
             <input type="date" id="date" placeholder="Enter date of expense" className="
             text-purple-600 border border-purple-300 rounded p-2 focus:outline-none 
-            focus:ring-2 focus:ring-purple-400
+            focus:ring-2 focus:ring-purple-400 w-full
             "/>
             <label htmlFor="amount spent" className="text-purple-600 text-left" >Amount Spent</label>
             <input type="number" id="amount" placeholder="Enter amount spent" step="0.01" className="
             text-purple-600 border border-purple-300 rounded p-2 focus:outline-none 
-            focus:ring-2 focus:ring-purple-400
+            focus:ring-2 focus:ring-purple-400 w-full
             "/>
             <label htmlFor="category" className="text-purple-600 text-left" >Category</label>
             <select
             id="category"
             className="
             text-purple-600 border border-purple-300 rounded p-2 
-            focus:outline-none focus:ring-2 focus:ring-purple-400 
-            w-full md:w-3/4 lg:w-1/2
+            focus:outline-none focus:ring-2 focus:ring-purple-400 w-full
             "
             >
             <option value="">Select a category</option>
