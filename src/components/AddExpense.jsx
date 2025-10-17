@@ -60,12 +60,12 @@ export default function AddExpense({onCancel, onSubmit}) {
             "
             >
             <option value="">Select a category</option>
-            <option value="food">Food</option>
-            <option value="transportation">Transportation</option>
-            <option value="entertainment">Entertainment</option>
-            <option value="utilities">Utilities</option>
-            <option value="shopping">Shopping</option>
-            <option value="other">Other</option>
+            <option value="Food">Food</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Other">Other</option>
             </select>
             <button type="submit" className="bg-purple-600 text-white rounded p-2 mt-2 hover:bg-purple-700">
             Add Expense
