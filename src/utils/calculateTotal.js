@@ -1,6 +1,8 @@
-function calculateTotal(array){
-    return array.reduce((accumulator, currentExpense) => 
-         accumulator+currentExpense.amount, 0)
+function calculateTotal(array) {
+  return array.reduce(
+    (acc, expense) => acc + Number(expense.amount),
+    0
+  );
 }
 
 export default calculateTotal;
