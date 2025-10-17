@@ -1,7 +1,20 @@
 
 import { motion } from "framer-motion";
+import newExpense from "../mockData/expenseObject";
 
 export default function AddExpense({onCancel, onSubmit}) {
+
+    function handleSubmit(e) {
+        e.preventDefault(); // prevent browser full-page reload 
+
+        const expense = newExpense(e.target.title.value, e.target.date.value, 
+            parseFloat(e.target.amount.value), e.target.category.value)
+
+        onSubmit(expense);
+        // clear form or close modal
+        e.target.reset();
+  }
+
     return (
         <>
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={onCancel}>
@@ -22,7 +35,7 @@ export default function AddExpense({onCancel, onSubmit}) {
                     >
                         ✕
                     </button>
-            <form className="flex flex-col space-y-3 p-4 bg-purple-200 rounded-md shadow-md">
+            <form onSubmit = {handleSubmit} className="flex flex-col space-y-3 p-4 bg-purple-200 rounded-md shadow-md">
             <label htmlFor="title" className="text-purple-600 text-left" >Title</label>
             <input type="text" id="title" placeholder="Enter name for expense" className="
             text-purple-600 border border-purple-300 rounded p-2 focus:outline-none focus:ring-2 
