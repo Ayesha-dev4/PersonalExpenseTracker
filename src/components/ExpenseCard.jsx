@@ -1,4 +1,4 @@
-export default function ExpenseCard({title, amount, category, date}) {
+export default function ExpenseCard({title, date, amount, category}) {
   return (
     <>
     <div className="bg-white shadow-md rounded-lg p-4 flex items-center">

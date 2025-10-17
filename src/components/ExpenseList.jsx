@@ -6,21 +6,25 @@ import { AnimatePresence } from "framer-motion";
 import AddExpense from "./AddExpense";
 
 export default function ExpenseList() {
-    const [expenses, setExpenses] = useState(mockExpenseList)
+    const [expenses, setExpenses] = useState(() => {
+        const saved = localStorage.getItem("expenses");
+        return saved ? JSON.parse(saved) : mockExpenseList;
+    });
     const [showModal, setShowModal] = useState(false); // toggle to true to see expense form - false to dismiss
 
-    const total = calculateTotal(expenses)
-    useEffect(() => {
-    // this runs once after the component renders
-    const storedExpenses = localStorage.getItem("expenses")
-    if (storedExpenses) {
-        setExpenses(JSON.parse(storedExpenses))
-    }
-    }, [])
 
+    const total = calculateTotal(expenses)
+    console.log("Expenses array:", expenses);
+    console.log("Calculated total:", calculateTotal(expenses));
     useEffect(() => {
         localStorage.setItem("expenses", JSON.stringify(expenses))
+        console.log(expenses)
     }, [expenses]) // Save the expenses updates
+
+    function processNewExpense(expense){
+        setExpenses((prevExpenses) => [...prevExpenses, expense])
+        setShowModal(false)
+    }
 
     return (
           <>
@@ -35,7 +39,9 @@ export default function ExpenseList() {
       {/* AnimatePresence wraps around the conditional render */}
       <AnimatePresence>
         {showModal && (
-          <AddExpense onCancel={() => setShowModal(false)} />
+          <AddExpense onCancel={() => setShowModal(false)} 
+          onSubmit={(expense) => processNewExpense(expense)}
+          />
         )}
       </AnimatePresence>
 
